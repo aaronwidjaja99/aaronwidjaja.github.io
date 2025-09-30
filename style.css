@@ -1,0 +1,100 @@
+/* Minimal, readable academic style (no external libs) */
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#555;
+  --accent:#0b5fff;
+  --alt:#f6f7fb;
+  --card:#fff;
+  --border:#e6e8ee;
+  --shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.container{
+  width:min(100%, 960px);
+  margin:auto;
+  padding:0 20px;
+}
+
+.muted{color:var(--muted)}
+
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:rgba(255,255,255,0.9);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:saturate(180%) blur(8px);
+}
+
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+
+.brand{display:flex; align-items:center; gap:14px}
+.avatar{
+  width:56px; height:56px; border-radius:50%;
+  object-fit:cover; border:1px solid var(--border);
+}
+h1{font-size:1.35rem; line-height:1.2; margin:0}
+.brand p{margin:2px 0 0; color:var(--muted); font-size:0.95rem}
+
+.nav a{
+  color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px;
+}
+.nav a:hover{background:var(--alt)}
+
+.section{padding:56px 0}
+.section.alt{background:var(--alt)}
+h2{margin:0 0 12px 0; font-size:1.4rem}
+p{margin:10px 0}
+
+.highlights{margin:14px 0; padding-left:18px}
+.highlights li{margin:6px 0}
+
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:16px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.card h3{margin:0 0 6px 0; font-size:1.1rem}
+.card .meta{color:var(--muted); margin:0 0 8px 0; font-size:0.95rem}
+.card ul{margin:8px 0 0 18px}
+
+.btn{
+  display:inline-block; padding:8px 12px;
+  border-radius:10px; background:var(--accent); color:white;
+  text-decoration:none; font-weight:600; font-size:0.95rem;
+}
+.btn.subtle{background:transparent; color:var(--text); border:1px solid var(--border)}
+
+.buttons .btn{margin-right:8px}
+
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:22px 0; color:var(--muted); font-size:0.95rem;
+  background:#fff;
+}
+
+/* Mobile tweaks */
+@media (max-width:640px){
+  .nav{display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end}
+  .avatar{width:48px;height:48px}
+}
